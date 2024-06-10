@@ -19,3 +19,5 @@ Currently, two official plugins are available:
 - [mambaui]
 - [https://easyfrontend.com]
 
+## Implement  of 3 packages from the following list:
+# Swiper React
