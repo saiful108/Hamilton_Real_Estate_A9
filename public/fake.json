@@ -1,0 +1,123 @@
+[
+    {
+      "id": 1,
+      "estate_title": "Modern Apartment",
+      "segment_name": "Residential",
+      "description": "Spacious apartment with city views",
+      "price": "$150,000",
+      "Status": "sale",
+      "Area": "1200 sq ft",
+      "location": "Dhanmondi, Dhaka",
+      "facilities": ["balcony", "gym", "security"],
+      "image_url": "https://st3.depositphotos.com/2614597/37413/i/450/depositphotos_374134018-stock-photo-multi-storey-residential-building-construction.jpg",
+      "view_property_button": "https://example.com/property/101"
+    },
+    {
+      "id": 2,
+      "estate_title": "Cozy Bungalow",
+      "segment_name": "Residential",
+      "description": "Quaint bungalow near the beach",
+      "price": "$250,000",
+      "Status": "sale",
+      "Area": "1800 sq ft",
+      "location": "Cox's Bazar",
+      "facilities": ["garden", "swimming pool", "generator"],
+      "image_url": "https://i.pinimg.com/474x/6c/53/ee/6c53eec013e4a0ffbcfdb926d409c478.jpg",
+      "view_property_button": "https://example.com/property/102"
+    },
+    {
+      "id": 3,
+      "estate_title": "Riverside Villa",
+      "segment_name": "Residential",
+      "description": "Luxurious villa by the river",
+      "price": "$500,000",
+      "Status": "sale",
+      "Area": "3000 sq ft",
+      "location": "Sylhet",
+      "facilities": ["terrace", "private dock", "security"],
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOmigMaTPppX0B07rJUZOQcYrF4e-btN5TEg&s",
+      "view_property_button": "https://example.com/property/103"
+    },
+    {
+      "id": 4,
+      "estate_title": "Charming Cottage",
+      "segment_name": "Residential",
+      "description": "Traditional cottage in the hills",
+      "price": "$120,000",
+      "Status": "sale",
+      "Area": "1500 sq ft",
+      "location": "Bandarban",
+      "facilities": ["fireplace", "garden", "mountain view"],
+      "image_url": "https://c8.alamy.com/comp/2J7XXE4/rural-cottage-in-bangladesh-2J7XXE4.jpg",
+      "view_property_button": "https://example.com/property/104"
+    },
+    
+        {
+          "id": 5,
+          "estate_title": "Lakefront Cottage",
+          "segment_name": "Residential",
+          "description": "Tranquil cottage by the lake",
+          "price": "$180,000",
+          "Status": "sale",
+          "Area": "1400 sq ft",
+          "location": "Rangamati",
+          "facilities": ["fire pit", "deck", "lake view"],
+          "image_url": "https://images.pexels.com/photos/65225/boat-house-cottage-waters-lake-65225.jpeg?cs=srgb&dl=pexels-pixabay-65225.jpg&fm=jpg",
+          "view_property_button": "https://example.com/property/105"
+        },
+        {
+          "id": 6,
+          "estate_title": "Urban Loft",
+          "segment_name": "Residential",
+          "description": "Industrial-style loft in the heart of the city",
+          "price": "$300,000",
+          "Status": "sale",
+          "Area": "2000 sq ft",
+          "location": "Gulshan, Dhaka",
+          "facilities": ["exposed brick", "rooftop terrace", "gym"],
+          "image_url": "https://cdn-jjgoh.nitrocdn.com/arWkhnmRlfVyvYMxdBnaUHMHNNkXfamB/assets/images/optimized/rev-1180d01/urban.com.bd/wp-content/uploads/2021/07/URBAN-GUL-E-RANA-5.png",
+          "view_property_button": "https://example.com/property/106"
+        },
+        {
+          "id": 7,
+          "estate_title": "Seaside Villa",
+          "segment_name": "Residential",
+          "description": "Elegant villa with ocean views",
+          "price": "$750,000",
+          "Status": "sale",
+          "Area": "3500 sq ft",
+          "location": "Cox's Bazar",
+          "facilities": ["infinity pool", "private beach access", "security"],
+          "image_url": "https://media.istockphoto.com/id/1424381465/photo/modern-villa-with-two-floors-overlooking-sea.jpg?s=612x612&w=0&k=20&c=jS_FxKBp-7tx2hSkYwvrqRyPk9pqKQwH8GvE9ZTYNx0=",
+          "view_property_button": "https://example.com/property/107"
+        },
+        {
+          "id": 8,
+          "estate_title": "Cosy Studio",
+          "segment_name": "Residential",
+          "description": "Compact studio for a minimalist lifestyle",
+          "price": "$800/month",
+          "Status": "rent",
+          "Area": "500 sq ft",
+          "location": "Banani, Dhaka",
+          "facilities": ["fully furnished", "laundry", "fitness center"],
+          "image_url": "https://a0.muscache.com/im/pictures/miso/Hosting-797410429255047385/original/e05a3e95-3a81-4f17-89ec-2579d778e64b.jpeg?im_w=720",
+          "view_property_button": "https://example.com/property/108"
+        },
+        {
+          "id": 9,
+          "estate_title": "Hillside Retreat",
+          "segment_name": "Residential",
+          "description": "Serene retreat in the hills",
+          "price": "$400,000",
+          "Status": "sale",
+          "Area": "2800 sq ft",
+          "location": "Bandarban",
+          "facilities": ["veranda", "garden", "mountain view"],
+          "image_url": "https://pix10.agoda.net/hotelImages/116/1163628/1163628_16021620380039909541.jpg?ca=6&ce=1&s=414x232&ar=16x9",
+          "view_property_button": "https://example.com/property/109"
+        }
+      ]
+      
+    
+  
