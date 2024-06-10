@@ -7,6 +7,9 @@ import ErrorPage from "../Componets/ErrorPage";
 import Home from "../Pages/Home/Home";
 import SignIn from "../Pages/Auth/SignIn";
 import SignUp from "../Pages/Auth/SignUp";
+import Estate from "../Componets/Estate";
+import Estate_Details from "../Componets/Estate_Details";
+
 
 export  const router = createBrowserRouter([
     {
@@ -25,6 +28,17 @@ export  const router = createBrowserRouter([
         {
             path:'/signUp',
             element:<SignUp/>
+        },
+        {
+          path:'/estate',
+          element:<Estate></Estate>,
+          loader:()=>fetch(`./fake.json`)
+        },
+        {
+          path:'/estate/idx',
+          element:<Estate_Details></Estate_Details>,
+         
+
         }
       ]
     },
