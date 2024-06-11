@@ -15,7 +15,7 @@ fetch('./fake.json')
     },[])
    
     
-   
+  
     return (
         <section className=" body-font">
         <div className="container px-5 py-24 mx-auto">
@@ -56,7 +56,7 @@ fetch('./fake.json')
 
                      
                     </div>
-                    <Link to={estate.id} className="btn bg-[#561d88] text-white">Property Details</Link>
+                    <Link  to={`/estate/${estate.id}`} className="btn bg-[#561d88] text-white">Property Details</Link>
                   </div>)
             }
             

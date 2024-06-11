@@ -32,12 +32,12 @@ export  const router = createBrowserRouter([
         {
           path:'/estate',
           element:<Estate></Estate>,
-          loader:()=>fetch(`./fake.json`)
+          loader:()=>fetch('../../fake.json')
         },
         {
-          path:'/estate/idx',
+          path:'/estate/:idx',
           element:<Estate_Details></Estate_Details>,
-         
+          loader:()=>fetch(`../../fake.json`)
 
         }
       ]
