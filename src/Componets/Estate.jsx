@@ -1,5 +1,6 @@
 
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet-async";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 // import { useLoaderData } from "react-router-dom";
@@ -18,6 +19,10 @@ fetch('./fake.json')
   
     return (
         <section className=" body-font">
+           <Helmet>
+           <title>Hamilton Real Estate | Estate</title>
+      
+      </Helmet>
         <div className="container px-5 py-24 mx-auto">
           <div className="flex flex-wrap sm:flex-row flex-col py-6 mb-12 border-2 -m-4">
             {/* 1 */}

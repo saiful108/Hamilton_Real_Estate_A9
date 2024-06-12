@@ -21,3 +21,4 @@ Currently, two official plugins are available:
 
 ## Implement  of 3 packages from the following list:
 # Swiper React
+# React-hook-form

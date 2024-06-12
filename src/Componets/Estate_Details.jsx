@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { FaLandmark, FaLocationDot, FaPhone } from "react-icons/fa6";
 import { ImPriceTag } from "react-icons/im";
 import { useLoaderData, useParams,} from "react-router-dom";
@@ -9,9 +10,13 @@ const Estate_Details = () => {
    let {idx}=useParams();
    const property=estates.find(estate=>estate.id===parseInt(idx));
   const {estate_title,image_url,segment_name,description,price,Status,Area,location,facilities,owner_phone}=property;
+ 
     return (
         <div>
-           
+           <Helmet>
+           <title>Hamilton | Details</title>
+      
+      </Helmet>
         <section className="ezy__contents8 light pb-14 md:pb-24 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white">
 			<div
 				className="h-[800px] w-full bg-top bg-cover bg-no-repeat relative"
