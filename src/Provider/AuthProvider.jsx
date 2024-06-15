@@ -1,47 +1,58 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { createContext, useEffect, useState } from "react";
+import PropTypes from 'prop-types';
+import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import auth from "../Firebase/firebase.config";
 
-export const AuthContext=createContext();
-const AuthProvider = ({children}) => {
-    const [user,setUser]=useState(null);
-    const [loading,setLoading]=useState(true)
-    // create user
-    const createUser=(email,password)=>{
-        setLoading(true)
-return createUserWithEmailAndPassword(auth, email, password)
-    }
-// sign user
-const login=(email,password)=>{
+
+export const AuthContext=createContext(null)
+const Authprovider = ({children}) => {
+ const [user,setUser]=useState(null);
+ const [success,setSuccess]=useState(null);
+ const [errors,setErrors]=useState(null);
+ const [loading,setLoading]=useState(true)
+
+const createUser=(email,password)=>{
     setLoading(true)
-    return signInWithEmailAndPassword(auth, email, password)
+    return createUserWithEmailAndPassword(auth, email, password)
+
 }
 
-// logout
-const logOut=()=>{
+const signInUser=(email,password)=>{
     setLoading(true)
-    return signOut(auth)
+    return   signInWithEmailAndPassword(auth,email,password)
+    
 }
 
-// observer 
+const signOutUser=()=>{
+    setLoading(true)
+  return  signOut(auth)
+}
 
+// observering
 useEffect(()=>{
-  const unSubscribe=onAuthStateChanged(auth,(currentUser)=>{
-        setUser(currentUser);
+   const unSubscribe= onAuthStateChanged(auth,(currentUser)=>{
+        setUser(currentUser)
         console.log({currentUser});
-        setLoading(true)
+        setLoading(false)
     })
     return ()=>{
-        unSubscribe();
+        unSubscribe()
     }
 },[])
 
- const authInfo={createUser,user,login,logOut}
+
+
+ const authinfo={
+    user,createUser,signInUser, signOutUser,success,setSuccess,errors,setErrors,loading
+ }
     return (
-        <AuthContext.Provider value={authInfo}>
+        <AuthContext.Provider value={authinfo}>
             {children}
         </AuthContext.Provider>
     );
 };
 
-export default AuthProvider;
+export default Authprovider;
+Authprovider.propTypes={
+    children: PropTypes.node
+}

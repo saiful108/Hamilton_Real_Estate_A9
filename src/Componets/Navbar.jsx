@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 const active=({ isActive, isPending,isTransitioning }) =>[
     isPending ? "pending" : "",
@@ -11,11 +13,9 @@ const Navbar = () => {
   <li className="px-2"><NavLink  to='/' className={active}>Home</NavLink></li>
   <li className="px-2"><NavLink  to='/signIn' className={active} >Update Profile</NavLink></li>
   <li className="px-2"><NavLink  to='/signUp' className={active} >User Profile</NavLink></li>
-  
-   
-   
-  
-    </>
+      </>
+
+      const {user}=useContext(AuthContext);
     return (
         <div className="navbar bg-base-100">
   <div className="navbar-start">
@@ -27,7 +27,7 @@ const Navbar = () => {
         {navIteam}
       </ul>
     </div>
-    <img src="https://i.ibb.co/Cs8SNNt/Hamilton-Real-Estate.png"  alt='logo' className="w-16 h-16  text-xl"/>
+    <img src="https://i.ibb.co/Cs8SNNt/Hamilton-Real-Estate.png"  alt='logo' className="w-16 h-16  text-xl hover:bg-sky-700"/>
     
   </div>
   <div className="navbar-center hidden lg:flex">
@@ -44,17 +44,17 @@ const Navbar = () => {
           <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
         </div>
       </div>
-      <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+      <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
         <li>
           <a className="justify-between">
-           User  Profile
-            {/* <span className="badge">New</span> */}
+            Profile
+            <span className="badge">New</span>
           </a>
         </li>
-        <li><a>Update  Profile</a></li>
+        <li><a>Settings</a></li>
         <li><a>Logout</a></li>
       </ul>
-      </div>
+    </div>
         {/* dropdown */}
   </div>
 </div>
