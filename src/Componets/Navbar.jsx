@@ -11,7 +11,7 @@ const active=({ isActive, isPending,isTransitioning }) =>[
 const Navbar = () => {
     const navIteam=<>
   <li className="px-2"><NavLink  to='/' className={active}>Home</NavLink></li>
-  <li className="px-2"><NavLink  to='/signIn' className={active} >Update Profile</NavLink></li>
+  <li className="px-2"><NavLink  to='/login' className={active} >Update Profile</NavLink></li>
   <li className="px-2"><NavLink  to='/signUp' className={active} >User Profile</NavLink></li>
       </>
 

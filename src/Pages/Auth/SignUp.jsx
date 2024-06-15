@@ -1,5 +1,5 @@
 import { useContext, useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import {  updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,6 +9,7 @@ const SignUp = () => {
     const {createUser,success,setSuccess,errors,setErrors}=useContext(AuthContext);
     const [accept,setAccept]=useState(false);
     const [show,setShow]=useState(false)
+    const navigate = useNavigate();
 
     const handleSignUp=e=>{
         e.preventDefault();
@@ -53,6 +54,7 @@ console.log(user);
             })
             setSuccess(toast.success('user create successfully'))
             e.target.reset()
+            navigate('/')
         })
         .catch((error)=>{
             const errorCode = error.code;
@@ -115,7 +117,7 @@ console.log(user);
 				<button  className="w-full px-8 py-3 font-semibold rounded-md bg-violet-600 text-gray-50 mt-5">Sign in</button>
 			</div>
 			<p className="px-6 text-sm text-center text-gray-600">Don't have an account yet?
-				<Link to='/login' rel="noopener noreferrer" href="#" className="hover:underline text-violet-600">Sign up</Link>.
+				<Link to='/login' rel="noopener noreferrer"  className="hover:underline text-violet-600">Login</Link>.
 			</p>
            
 		</div>

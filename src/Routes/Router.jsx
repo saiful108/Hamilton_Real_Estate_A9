@@ -5,10 +5,12 @@ import {
 import Main from "../Layout/Main";
 import ErrorPage from "../Componets/ErrorPage";
 import Home from "../Pages/Home/Home";
-import SignIn from "../Pages/Auth/SignIn";
-import SignUp from "../Pages/Auth/SignUp";
+
+
 import Estate from "../Componets/Estate";
 import Estate_Details from "../Componets/Estate_Details";
+import Login from "../Pages/Auth/Login";
+import SignUp from "../Pages/Auth/SignUp";
 
 
 export  const router = createBrowserRouter([
@@ -22,8 +24,8 @@ export  const router = createBrowserRouter([
             element:<Home></Home>
         },
         {
-            path:'/signIn',
-            element:<SignIn/>
+            path:'/login',
+            element:<Login/>
         },
         {
             path:'/signUp',
