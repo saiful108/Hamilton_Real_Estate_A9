@@ -1,33 +1,34 @@
 
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaLocationDot } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-// import { useLoaderData } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
+
 
 
 const Estate = () => {
     const [data,setData]=useState([])
-    // const data=useLoaderData();
     useEffect(()=>{
 fetch('./fake.json')
 .then(res=>res.json())
-.then(es=>setData(es))
+.then(estate=>setData(estate))
     },[])
    
     
   
     return (
-        <section className=" body-font">
+        <section className=" body-font" >
            <Helmet>
            <title>Hamilton Real Estate | Estate</title>
       
       </Helmet>
-        <div className="container px-5 py-24 mx-auto">
-          <div className="flex flex-wrap sm:flex-row flex-col py-6 mb-12 border-2 -m-4">
+        <div  className="container px-5 py-24 mx-auto">
+          <div  className="flex flex-wrap sm:flex-row flex-col py-6 mb-12 border-2 -m-4">
+            
             {/* 1 */}
             {
-                data.map(estate=><div key={estate.id} className="card  p-4 md:w-1/3  shadow-xl ">
+                data.map(estate=><div data-aos="zoom-in" data-aos-duration="7000"  key={estate.id} className="card  p-4 md:w-1/3  shadow-xl ">
                     <figure className="relative">
                    <span className="badge  bg-[#482c7b] text-white text-xl font-bold absolute left-1 px-5 py-4">{estate.price}</span>
                         <img src={estate.image_url} className="w-full h-96" alt="Shoes" />

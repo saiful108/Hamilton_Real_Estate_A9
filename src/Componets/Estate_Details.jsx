@@ -17,7 +17,7 @@ const Estate_Details = () => {
            <title>Hamilton | Details</title>
       
       </Helmet>
-        <section className="ezy__contents8 light pb-14 md:pb-24 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white">
+        <section data-aos="fade-down"  data-aos-easing="linear"  data-aos-duration="1500"   className="ezy__contents8 light pb-14 md:pb-24 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white">
 			<div
 				className="h-[800px] w-full bg-top bg-cover bg-no-repeat relative"
 				style={{

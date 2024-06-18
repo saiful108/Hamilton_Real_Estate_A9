@@ -16,7 +16,7 @@ const Slider = () => {
     
    
     return (
-        <>
+        <div className="swiper-container">
         
         <Swiper
         pagination={{
@@ -165,7 +165,7 @@ const Slider = () => {
    </div> 
            </SwiperSlide>
       </Swiper>
-      </>
+      </div>
     );
 };
 

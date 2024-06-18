@@ -1,16 +1,22 @@
 import { useContext, useState } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
-import {  updateProfile } from "firebase/auth";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { signInWithPopup, updateProfile } from "firebase/auth";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-const SignUp = () => {
-    const {createUser,success,setSuccess,errors,setErrors}=useContext(AuthContext);
-    const [accept,setAccept]=useState(false);
-    const [show,setShow]=useState(false)
-    const navigate = useNavigate();
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/web-extension";
+import auth from "../../Firebase/firebase.config";
 
+
+const SignUp = () => {
+      const {createUser,success,setSuccess,errors,setErrors,handleUpdate}=useContext(AuthContext);
+    const [accept,setAccept]=useState('');
+    const [show,setShow]=useState(false);
+       const navigate = useNavigate();
+       const locatoion=useLocation();
+     
+console.log({accept});
     const handleSignUp=e=>{
         e.preventDefault();
         const email=e.target.email.value;
@@ -18,22 +24,27 @@ const SignUp = () => {
         const name=e.target.name.value;
         const url=e.target.url.value;
         const terms=e.target.terms.checked
-        setAccept(terms)
-        console.log({email,password});
+        // setAccept(terms)
+        console.log({email,password,terms});
 // reset
 setSuccess('');
 setErrors('');
+setAccept('')
 
 
 // password validation
 if(!/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/.test(password)){
-    setErrors(('At least 8 characters long, includes at least one uppercase letter, one lowercase letter, one number, and one special character.'))
+    setErrors(toast.warn('At least 8 characters long, includes at least one uppercase letter, one lowercase letter, one number, and one special character.'))
+   return
+}
+if(terms===false){
+    setErrors(toast.warn('please accept our terms and condition'))
     return
 }
- if(!accept){
-    setErrors(('please accept our terms and condition'))
-    return
-}
+
+
+
+
     // firebase user create
         createUser(email,password)
         .then((result)=>{
@@ -46,7 +57,11 @@ console.log(user);
   //   // Email verification sent!
   // setErrors(toast.warn('Email verification sent!,check inbox'))
   // });
-         
+//   handleUpdate(result.user,{
+//     displayName:name,
+//     photoURL:url
+
+// })
             updateProfile(result.user,{
                 displayName:name,
                 photoURL:url
@@ -54,7 +69,7 @@ console.log(user);
             })
             setSuccess(toast.success('user create successfully'))
             e.target.reset()
-            navigate('/')
+            navigate(locatoion?.state?locatoion.state : '/')
         })
         .catch((error)=>{
             const errorCode = error.code;
@@ -62,6 +77,8 @@ console.log(user);
             setErrors(toast.warn(errorMessage))
         })
     }
+ 
+   
     return (
         <div className='grid justify-center'>
             <ToastContainer />
@@ -105,15 +122,15 @@ console.log(user);
 		<div className="space-y-2">
             <br />
             <div className="flex justify-start items-center mb-2">
-                <input type="checkbox" name="terms" id="terms" />
+                <input type="checkbox"  name="terms" id="terms" />
                 <label htmlFor="terms" className="block mb-2 text-sm"><NavLink to='/terms'>Terms and Conditions</NavLink></label>
                 </div>
             <br />
 			<div>
     
-            {
+            {/* {
                 errors && <p className="text-xl text-red-500">{errors}</p>
-            }
+            } */}
 				<button  className="w-full px-8 py-3 font-semibold rounded-md bg-violet-600 text-gray-50 mt-5">Sign in</button>
 			</div>
 			<p className="px-6 text-sm text-center text-gray-600">Don't have an account yet?
@@ -122,6 +139,7 @@ console.log(user);
            
 		</div>
 	</form>
+   
 </div> 
         </div>
     );

@@ -3,7 +3,7 @@ import { FaLinkedinIn } from "react-icons/fa6";
 
 const Footer = () => {
     return (
-        <section className="ezy__copyright9 light py-12 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white">
+        <section data-aos="fade-right" data-aos-duration="7000" className="ezy__copyright9 light py-12 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white">
         <div className="container px-4">
             <div className="grid grid-cols-12">
                 <div className="col-span-12 md:col-span-8 md:col-start-3 lg:col-span-6 lg:col-start-4">

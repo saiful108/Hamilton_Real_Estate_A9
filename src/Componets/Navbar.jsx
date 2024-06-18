@@ -1,6 +1,8 @@
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import { ToastContainer, toast } from "react-toastify";
+
 
 const active=({ isActive, isPending,isTransitioning }) =>[
     isPending ? "pending" : "",
@@ -9,17 +11,32 @@ const active=({ isActive, isPending,isTransitioning }) =>[
 ].join(" ")
   
 const Navbar = () => {
+  const {user,signOutUser,success,setSuccess,errors,setErrors}=useContext(AuthContext);
+  console.log(user);
     const navIteam=<>
   <li className="px-2"><NavLink  to='/' className={active}>Home</NavLink></li>
-  <li className="px-2"><NavLink  to='/login' className={active} >Update Profile</NavLink></li>
-  <li className="px-2"><NavLink  to='/signUp' className={active} >User Profile</NavLink></li>
+  <li className="px-2"><NavLink  to='/update' className={active} >Update Profile</NavLink></li>
+  <li className="px-2"><NavLink  to='/user' className={active} >User Profile</NavLink></li>
       </>
 
-      const {user}=useContext(AuthContext);
+
+const handleSignOut=()=>{
+  signOutUser()
+  .then(() => {
+    // Sign-out successful.
+    setSuccess(toast.success('Sign out successfully'));
+  }).catch((error) => {
+    // An error happened.
+    setErrors(toast.error(error.message));
+  })
+}
+// jita@mailinator.com
+
     return (
-        <div className="navbar bg-base-100">
+        <div data-aos="fade-left" data-aos-duration="7000"  className="navbar ">
+          <ToastContainer />
   <div className="navbar-start">
-    <div className="dropdown">
+    <div  className="dropdown ">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
       </div>
@@ -35,27 +52,34 @@ const Navbar = () => {
      {navIteam}
     </ul>
   </div>
-  
+  {/* howtolearn1108@gmail.com */}
   <div className="navbar-end">
     {/* dropdown */}
-    <div className="dropdown dropdown-end">
-      <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
-        <div className="w-10 rounded-full">
-          <img alt="Tailwind CSS Navbar component" src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-        </div>
+   {
+    user? <div className="dropdown dropdown-bottom dropdown-end flex items-center gap-2 ">
+      <button onClick={handleSignOut} className="btn btn-neutral">Logout</button>
+    <div tabIndex={0} role="button" className=" btn  btn-circle avatar">
+     
+      <div className="myDIV w-96 rounded-full" >
+        {
+          user &&<>
+          <img alt="Tailwind CSS Navbar component " className="tooltip"
+         src={user.
+            photoURL} />
+            
+          </> 
+        }
+       
+       
       </div>
-      <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-        <li>
-          <a className="justify-between">
-            Profile
-            <span className="badge">New</span>
-          </a>
-        </li>
-        <li><a>Settings</a></li>
-        <li><a>Logout</a></li>
-      </ul>
+     
     </div>
+   
+  </div>:<Link to="/login" className="btn btn-ghost">Login</Link>
+   }
         {/* dropdown */}
+
+        
   </div>
 </div>
     );

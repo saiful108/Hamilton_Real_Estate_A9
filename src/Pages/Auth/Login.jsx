@@ -1,13 +1,16 @@
-import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../Provider/AuthProvider";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 const Login = () => {
   const { signInUser, success, setSuccess, errors, setErrors } =
     useContext(AuthContext);
+    const [show,setShow]=useState(false)
   const navigate = useNavigate();
+  const location=useLocation();
   const handleSignIn = (e) => {
     e.preventDefault();
     const email = e.target.email.value;
@@ -18,7 +21,8 @@ const Login = () => {
         console.log({ user });
         setSuccess(toast.success("login successfully"));
         e.target.reset();
-        navigate("/");
+      //  navigate(location?.state ? location.state : '/');
+       navigate(location?.state?.from? location.state.from : '/');
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -70,12 +74,13 @@ const Login = () => {
                 </a>
               </div>
               <input
-                type="password"
+                type={show?"text":"password"}
                 name="password"
                 id="password"
                 placeholder="*****"
                 className="w-full px-3 py-2 border rounded-md border-gray-300 bg-gray-50 text-gray-800"
               />
+              <span className=" absolute mt-3 -ml-8" onClick={()=>setShow(!show)}>{show?<FaEye />:<FaEyeSlash />}</span>
             </div>
           </div>
           <div className="space-y-2">
