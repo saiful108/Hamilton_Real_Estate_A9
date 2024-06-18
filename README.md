@@ -25,9 +25,13 @@ Currently, two official plugins are available:
 
 
 ## Features:
-#Every user should be registered otherwise he/she cannot access estate detail the website.
+# Every user should be registered otherwise he/she cannot access estate detail the website.
 #Every user should be able to sign up for the website.
+
 #Every user should be able to log in to the website.
+
 #Every user should be able to log out of the website.
+
 #without login user cannot access estate detail the website.
+
 #Every user should be able to view User profile the website.
