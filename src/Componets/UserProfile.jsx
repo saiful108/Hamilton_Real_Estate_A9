@@ -1,12 +1,16 @@
 
 import { useContext } from 'react';
 import { AuthContext } from '../Provider/AuthProvider';
+import { Helmet } from 'react-helmet-async';
 
 const UserProfile = () => {
     const {user}=useContext(AuthContext);
     console.log(user);
     return (
         <div className='grid justify-center py-4'>
+             <Helmet>
+        <title>Hamilton Real Estate | User Profile</title>
+            </Helmet>
             <div className="card w-96 bg-base-100 shadow-xl">
   <figure>
     

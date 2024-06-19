@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import { useRouteError } from "react-router-dom";
 
 
@@ -6,6 +7,9 @@ const ErrorPage = () => {
   console.error(error);
     return (
         <section className="ezy__httpcodes9 light py-14 md:py-24 bg-white dark:bg-[#0b1727] text-zinc-900 dark:text-white">
+             <Helmet>
+        <title>Hamilton Real Estate | Error</title>
+            </Helmet>
         <div className="container px-4 mx-auto">
             <div className="flex flex-wrap justify-center text-center">
                 <div className="w-full">

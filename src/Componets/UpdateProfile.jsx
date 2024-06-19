@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import auth from "../Firebase/firebase.config";
 import { updateProfile } from "firebase/auth";
+import { Helmet } from "react-helmet-async";
 
 
 const UpdateProfile = () => {
@@ -18,6 +19,9 @@ const UpdateProfile = () => {
    }
     return (
         <div className="grid justify-center">
+             <Helmet>
+        <title>Hamilton Real Estate | UpadateProfile</title>
+            </Helmet>
             <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-50 text-gray-800">
             <form onClick={handleUserupdate}  noValidate="" action="" className="space-y-12">
 		<div className="space-y-4">
