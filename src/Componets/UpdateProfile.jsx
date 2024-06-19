@@ -20,7 +20,7 @@ const UpdateProfile = () => {
     return (
         <div className="grid justify-center">
              <Helmet>
-        <title>Hamilton Real Estate | UpadateProfile</title>
+        <title>Hamilton Real Estate | Upadate Profile</title>
             </Helmet>
             <div className="flex flex-col max-w-md p-6 rounded-md sm:p-10 bg-gray-50 text-gray-800">
             <form onClick={handleUserupdate}  noValidate="" action="" className="space-y-12">
