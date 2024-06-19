@@ -4,6 +4,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import SocialAuth from "../../Componets/SocialAuth";
 
 const Login = () => {
   const { signInUser, success, setSuccess, errors, setErrors } =
@@ -102,6 +103,7 @@ const Login = () => {
             </p>
           </div>
         </form>
+        <SocialAuth></SocialAuth>
       </div>
     </div>
   );

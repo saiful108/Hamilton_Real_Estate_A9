@@ -7,16 +7,18 @@ import { AuthContext } from "../../Provider/AuthProvider";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth/web-extension";
 import auth from "../../Firebase/firebase.config";
+import SocialAuth from "../../Componets/SocialAuth";
 
 
+const provider=new GoogleAuthProvider();
 const SignUp = () => {
-      const {createUser,success,setSuccess,errors,setErrors,handleUpdate}=useContext(AuthContext);
+         const {createUser,success,setSuccess,errors,setErrors,handleUpdate}=useContext(AuthContext);
     const [accept,setAccept]=useState('');
     const [show,setShow]=useState(false);
        const navigate = useNavigate();
        const locatoion=useLocation();
      
-console.log({accept});
+
     const handleSignUp=e=>{
         e.preventDefault();
         const email=e.target.email.value;
@@ -78,7 +80,25 @@ console.log(user);
         })
     }
  
+   const handleGoogle=()=>{
    
+    signInWithPopup(auth, provider)
+    .then((result) => {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      
+      // The signed-in user info.
+      const user = result.user;
+      console.log(user);
+      // ...
+    }).catch((error) => {
+      // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // The email of the user's account used.
+    
+      // ...
+    });
+   }
     return (
         <div className='grid justify-center'>
             <ToastContainer />
@@ -139,8 +159,11 @@ console.log(user);
            
 		</div>
 	</form>
-   
+
+    
+    <SocialAuth></SocialAuth>
 </div> 
+
         </div>
     );
 };
